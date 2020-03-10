@@ -29,7 +29,6 @@ var tbody = d3.select("tbody");
 // });
 
 // // Step 4: Use d3 to append 1 cell per value and update cell's text with data values 
-
 tableData.forEach(function(UFOone) {
     console.log(UFOone);
     var row = tbody.append("tr");
@@ -41,28 +40,23 @@ tableData.forEach(function(UFOone) {
     });
 });
 
+
 // Using the function on the button
 var button = d3.select("#filter-btn");
-
 button.on("click", function() {
-
     tbody.html("");
-
     d3.event.preventDefault();
 
-    // Select input element and get raw HTML node
+    // Select input element 
     var inputElement = d3.select("#datetime");
     //Get the value of the input element 
     var inputValue = inputElement.property("value");
-
     console.log(inputValue);
-
     var FilteredData = tableData.filter(tableData => tableData.datetime === inputValue);
-
     console.log(FilteredData)
 
     
-// To display the filtered search result by year 
+// To display the filtered search result by date
     FilteredData.forEach(function(newfilter) {
     console.log(newfilter);
     var frow = tbody.append("tr");
